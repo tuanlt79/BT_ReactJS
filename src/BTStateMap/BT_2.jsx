@@ -2,13 +2,15 @@ import React, { Component } from "react";
 
 export default class BT_2 extends Component {
   state = {
-    imgState: "./glassesImage/v1.png",
+    imgState: "./glassesImage/v9.png",
   };
-  changGlasses = (number) => {
+
+  changGlasses = () => {
     this.setState({
-      imgSrc: `./glassesImage/${number}.png`,
+      imgState: `./glassesImage/v1.png`,
     });
   };
+
   arrProduct = [
     {
       id: 1,
@@ -83,23 +85,32 @@ export default class BT_2 extends Component {
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
   ];
-  // renderGlassess = () => {
-  //     const arrGlaseess=this.arrProduct
-  // }
+
   renderGlassess = () => {
     const arrGlassess = this.arrProduct.map((glasses, index) => {
       return (
-        <div className="col-2">
-           <div key={index} className=" bg-primary mt-5 " style={{ width: "100%" ,cursor:"pointer"}}>
-          <img
-            className="card-img-top"
-            src={glasses.url}
-            onClick={(e) => {
-              this.changGlasses();
-            }}
-          />
+        <div className="col-4">
+          <div
+            key={index}
+            className="card mb-4 d-flex"
+            style={{ alignSelf: "center", border: "none", cursor: "pointer" }}
+          >
+            <img
+              style={{ height: "250px" }}
+              className="card-img"
+              src={glasses.url}
+              alt={glasses.desc}
+              onClick={() => {
+                this.changGlasses();
+              }}
+              // onClick={this.changGlasses}
+            />
+            {/* <div className="card-body">
+              <h4 className="card-title">{glasses.name}</h4>
+              <p className="card-text">{glasses.des}</p>
+            </div> */}
+          </div>
         </div>
-       </div>
       );
     });
     return arrGlassess;
@@ -119,29 +130,30 @@ export default class BT_2 extends Component {
             <h1 className="text-center mb-5">Try Glassess App Online</h1>
             <div className="row">
               <div className="col-6">
-                <div>
-                  <img
-                    src="./glassesImage/model.jpg"
-                    style={{
-                      backgroundPosition: "center top",
-                      position: "relative",
-                      backgroundSize: "cover",
-                    }}
-                  />
+                <div
+                  style={{
+                    backgroundImage: "url(./glassesImage/model.jpg)",
+                    backgroundPosition: "center top",
+                    position: "relative",
+                    backgroundSize: "cover",
+                    height: "585px",
+                  }}
+                >
                   <img
                     src={this.state.imgState}
-                    style={{ position: "absolute", width: "320px",left: "95px",
-                    top: "140px",
-                    opacity: 0.8,
-                    height: "125px"}}
+                    style={{
+                      position: "absolute",
+                      width: "330px",
+                      left: "105px",
+                      top: "160px",
+                      opacity: 0.8,
+                      height: "125px",
+                    }}
                   />
-                  
                 </div>
               </div>
-              <div style={{backgroundColor:"white"}}>
-                <div className="row">
-                  {this.renderGlassess()}
-                </div>
+              <div style={{ backgroundColor: "white" }}>
+                <div className="row">{this.renderGlassess()}</div>
               </div>
             </div>
           </div>

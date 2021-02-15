@@ -10,7 +10,8 @@
 
 # production
 /build
-
+/BT_ThuKinh
+/BTStateMap
 # misc
 .DS_Store
 .env.local

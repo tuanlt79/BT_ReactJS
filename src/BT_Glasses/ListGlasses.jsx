@@ -5,7 +5,7 @@ export default class ListGlasses extends Component {
     let { showGlasses, changeGlasse } = this.props;
     return (
       <div>
-        <div
+        <div style={{border:"none"}}
           className="card"
           onClick={() => {
             changeGlasse(showGlasses);

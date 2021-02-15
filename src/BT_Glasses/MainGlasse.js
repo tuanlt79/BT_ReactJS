@@ -112,7 +112,12 @@ export default class MainGlasse extends Component {
     return (
       <div>
         <div
-          style={{ backgroundImage: "url('./glassesImage/background.jpg')", backgroundPosition:"center", backgroundSize:'cover' }}
+          style={{
+            backgroundImage: "url('./glassesImage/background.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            height: "100vh",
+          }}
         >
           <div className="container">
             <h1 className="text-center mb-5">TRY GLASSES APP ONLINE</h1>
@@ -138,10 +143,25 @@ export default class MainGlasse extends Component {
                 />
               </div>
               <div className="col-7">
+                <div className="card text-white bg-success mb-3">
+                  <div className="card-header">Header</div>
+                  <div className="card-body">
+                    <h5 className="card-title">Success card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+
                 <div className="card">
                   <div className="card-body">
-                    <h4 className="card-title">{this.state.matKinh.name}</h4>
-                    <p className="card-text">{this.state.matKinh.desc}</p>
+                    <h4 className="card-title text-danger">
+                      {this.state.matKinh.name}
+                    </h4>
+                    <p className="card-text text-primary">
+                      {this.state.matKinh.desc}
+                    </p>
                   </div>
                 </div>
               </div>

@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import ListGlasses from "./ListGlasses";
 
 export default class MainGlasse extends Component {
+  bodyBG = {
+    backgroundImage: 'url("./glassesImage/background.jpg")',
+    height: "100vh",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+  modelImg = {
+    backgroundImage: "url('./glassesImage/model.jpg')",
+    height: "585px",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    position: "relative",
+  };
+  glassDefault = {
+    position: "absolute",
+    width: "300px",
+    left: "90px",
+    top: "140px",
+    opacity: 0.8,
+    height: "125px",
+  };
   arrProduct = [
     {
       id: 1,
@@ -111,33 +132,13 @@ export default class MainGlasse extends Component {
   render() {
     return (
       <div>
-        <div
-          style={{
-            backgroundImage: "url('./glassesImage/background.jpg')",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            height: "100vh",
-          }}
-        >
+        <div style={this.bodyBG}>
           <div className="container">
             <h1 className="text-center mb-5">TRY GLASSES APP ONLINE</h1>
             <div className="row">
-              <div
-                className="col-5 mb-3"
-                style={{
-                  backgroundImage: "url('./glassesImage/model.jpg')",
-                  height: "585px",
-                }}
-              >
+              <div className="col-5 mb-3" style={this.modelImg}>
                 <img
-                  style={{
-                    position: "absolute",
-                    width: "300px",
-                    left: "90px",
-                    top: "140px",
-                    opacity: 0.8,
-                    height: "125px",
-                  }}
+                  style={this.glassDefault}
                   src={this.state.matKinh.url}
                   alt={this.state.matKinh.url}
                 />
@@ -146,7 +147,9 @@ export default class MainGlasse extends Component {
                 <div className="card border-info mb-3">
                   <div className="card-header text-center">Detail Glasses</div>
                   <div className="card-body text-info">
-                    <h5 className="card-title text-danger">{this.state.matKinh.name}</h5>
+                    <h5 className="card-title text-danger">
+                      {this.state.matKinh.name}
+                    </h5>
                     <p className="card-text">{this.state.matKinh.desc}</p>
                   </div>
                 </div>

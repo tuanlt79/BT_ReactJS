@@ -105,6 +105,25 @@ export default class MainGlasse extends Component {
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
   ];
+  // -----------Cách 1: Binding theo kiểu thông thường--------
+  // state = {
+  //   id: 1,
+  //   price: 30,
+  //   name: "GUCCI G8850U",
+  //   url: "./glassesImage/v1.png",
+  //   desc:
+  //     "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+  // };
+  // changeGlasse = (index) => {
+  //   this.setState({
+  //     id: this.arrProduct[index].id,
+  //     price: this.arrProduct[index].price,
+  //     name: this.arrProduct[index].name,
+  //     url: `./glassesImage/v${index+1}.png`,
+  //     desc:this.arrProduct[index].desc,
+  //   })
+  // }
+  // ------Cách 2: Dùng props binding-------
   state = {
     matKinh: {
       id: 1,
@@ -124,6 +143,11 @@ export default class MainGlasse extends Component {
     return this.arrProduct.map((item, index) => {
       return (
         <div className="col-2" style={{ cursor: "pointer" }} key={index}>
+          {/* ----Binding kiểu thông thường----- */}
+          {/* <img src={item.url} alt={item.desc} onClick={() => {
+            this.changeGlasse(index)
+          }}/> */}
+          {/* ----Sử dụng Props---- */}
           <ListGlasses showGlasses={item} changeGlasse={this.changeGlasse} />
         </div>
       );
